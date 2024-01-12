@@ -60,9 +60,9 @@ const birthdayStart = createDate({ day: 15, hour: 0, minute: 0 });
 const birthdayEnd = createDate({ day: 16, hour: 0, minute: 0 });
 
 //Hints
-const initReveal = createDate({ month: 1, day: 1, hour: 0, minute: 0 });
-const initRevealUntil = createDate({ day: 1, hour: 0, minute: 0 });
-const lastRevealUntil = createDate({ day: 16, hour: 15, minute: 0 });
+const initReveal = createDate({ month: 1, day: 1, hour: 0, minute: 0 }); // Not really a hint
+const initRevealUntil = createDate({ day: 1, hour: 0, minute: 0 }); // Not really a hint
+const lastRevealUntil = finalRevealDate.clone();
 
 // Activities - do not change
 // Day One

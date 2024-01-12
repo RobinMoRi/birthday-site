@@ -15,7 +15,7 @@ function RevealPage() {
       <CardHeader
         title={
           <Stack>
-            <Typography variant="h6">Vi ska till Bergen!</Typography>
+            <Typography variant="h6">Bergen</Typography>
           </Stack>
         }
       />
@@ -32,9 +32,9 @@ function RevealPage() {
             color="text.secondary"
             sx={{ fontStyle: "italic" }}
           >
-            Här, i en stad känd för sin fuktiga atmosfär och dess rikliga
-            naturresurser, där bergen är en del av stadsbilden, har vi nått vårt
-            slutmål: Bergen.
+            Och till sist, vi anländer till vår destination, där fjordarnas och
+            bergens skönhet möts med en hamnstad som har välkomnat sjöfarare i
+            århundraden. Vi ska till Bergen!
           </Typography>
         </Stack>
       </CardContent>

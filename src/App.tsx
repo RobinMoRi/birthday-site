@@ -5,11 +5,12 @@ import RevealPage from "./pages/RevealPage";
 import { Container } from "@mui/system";
 import { useWindowSize } from "react-use";
 import CustomConfetti from "./components/CustomConfetti";
+import { dates } from "./dates";
 
-const valentinesDayStart = moment.tz("2024-02-14 00:00", "Europe/Stockholm");
-const valentinesDayEnd = moment.tz("2024-02-15 00:00", "Europe/Stockholm");
-const birthdayStart = moment.tz("2024-02-15 00:00", "Europe/Stockholm");
-const birthdayEnd = moment.tz("2024-02-16 00:00", "Europe/Stockholm");
+const valentinesDayStart = dates.milestones.valentinesDayStart;
+const valentinesDayEnd = dates.milestones.valentinesDayEnd;
+const birthdayStart = dates.milestones.birthdayStart;
+const birthdayEnd = dates.milestones.birthdayEnd;
 
 function App({ revealTime }: { revealTime: moment.Moment }) {
   const [currentTime, setCurrentTime] = useState(moment());

@@ -11,10 +11,10 @@ import { BackgroundImageProvider } from "./context/BackgroundImageProvider";
 import moment from "moment-timezone";
 import "./main.css";
 import "moment/dist/locale/sv";
+import { dates } from "./dates";
 
-const packRevealDate = moment.tz("2024-02-14 15:00", "Europe/Stockholm");
-const scheduleRevealDate = moment.tz("2024-02-16 22:00", "Europe/Stockholm");
-const finalRevealDate = moment.tz("2024-02-16 15:00", "Europe/Stockholm");
+const { packRevealDate, scheduleRevealDate, finalRevealDate } =
+  dates.milestones;
 
 declare module "@mui/material/styles" {
   interface Theme {

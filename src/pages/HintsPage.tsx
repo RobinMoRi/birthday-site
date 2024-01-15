@@ -127,7 +127,7 @@ function HintsPage({ endTime }: { endTime: moment.Moment }) {
           <Stack>
             <Typography variant="h6">Dagens Ledtråd</Typography>
             <Typography color="text.secondary">
-              {currentTime?.format("ddd DD MMM")}
+              {currentTime?.format("ddd DD MMM, HH:mm")}
             </Typography>
           </Stack>
         }

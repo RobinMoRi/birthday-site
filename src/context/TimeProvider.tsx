@@ -34,7 +34,7 @@ export const TimeProvider = ({ children }: { children: React.ReactNode }) => {
     const fetchTime = async () => {
       // Replace with your API call
       const response = await fetch(
-        "http://worldtimeapi.org/api/timezone/Europe/Stockholm"
+        "https://worldtimeapi.org/api/timezone/Europe/Stockholm"
       );
       const data: WorldTimeApi = await response.json();
       const fetchedTime = moment(data.datetime);

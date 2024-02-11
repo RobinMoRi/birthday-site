@@ -81,26 +81,31 @@ function SchedulePage({ revealTime }: { revealTime: moment.Moment }) {
           {revealTime.isBefore(currentTime) ? (
             <CardContent>
               <Stack spacing={2}>
-                {currentDay.activities.map((activity) => {
-                  return (
-                    <Box>
-                      <Stack direction="row" spacing={2}>
-                        <Typography variant="caption" color="text.secondary">
-                          {activity.startTime.format("HH:mm")}-
-                          {activity.endTime.format("HH:mm")}
-                        </Typography>
-                        <Stack>
-                          <Typography variant="caption">
-                            {activity.title}
-                          </Typography>
+                {currentDay.activities
+                  .sort((a, b) => a.startTime.diff(b.startTime))
+                  .map((activity) => {
+                    return (
+                      <Box key={activity.title}>
+                        <Stack direction="row" spacing={2}>
                           <Typography variant="caption" color="text.secondary">
-                            {activity.subtitle}
+                            {activity.startTime.format("HH:mm")}-
+                            {activity.endTime.format("HH:mm")}
                           </Typography>
+                          <Stack>
+                            <Typography variant="caption">
+                              {activity.title}
+                            </Typography>
+                            <Typography
+                              variant="caption"
+                              color="text.secondary"
+                            >
+                              {activity.subtitle}
+                            </Typography>
+                          </Stack>
                         </Stack>
-                      </Stack>
-                    </Box>
-                  );
-                })}
+                      </Box>
+                    );
+                  })}
               </Stack>
             </CardContent>
           ) : null}

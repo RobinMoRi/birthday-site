@@ -18,6 +18,7 @@ export const BackgroundImageProvider = ({
     const updateBackgroundImage = () => {
       const { birthdayStart, birthdayEnd } = dates.milestones;
 
+      console.debug({ currentTime, birthdayStart, birthdayEnd });
       if (currentTime && currentTime.isBetween(birthdayStart, birthdayEnd)) {
         setBackgroundImage("present.png");
       } else {
@@ -26,12 +27,10 @@ export const BackgroundImageProvider = ({
     };
 
     updateBackgroundImage();
-    const interval = setInterval(updateBackgroundImage, 1000); // Update every second
-
-    return () => clearInterval(interval);
-  }, []);
+  }, [currentTime]);
 
   useEffect(() => {
+    console.debug({ backgroundImage });
     document.body.style.backgroundImage = `url(${backgroundImage})`;
     document.body.style.backgroundRepeat = "repeat";
     document.body.style.backgroundSize = "10%";

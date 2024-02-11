@@ -76,12 +76,12 @@ const hotelCheckinEnd = createDate({ day: 16, hour: 23, minute: 0 });
 
 // Day Two
 const secondDayStart = createDate({ day: 17, hour: 0, minute: 0 });
-const breakFastStart = createDate({ day: 17, hour: 10, minute: 0 });
-const breakFastEnd = createDate({ day: 17, hour: 11, minute: 0 });
-const cityTourStart = createDate({ day: 17, hour: 11, minute: 0 });
-const cityTourEnd = createDate({ day: 17, hour: 14, minute: 0 });
-const boatTourStart = createDate({ day: 17, hour: 14, minute: 0 });
-const boatTourEnd = createDate({ day: 17, hour: 18, minute: 0 });
+const breakFastStart = createDate({ day: 17, hour: 8, minute: 0 });
+const breakFastEnd = createDate({ day: 17, hour: 9, minute: 0 });
+const boatTourStart = createDate({ day: 17, hour: 10, minute: 0 });
+const boatTourEnd = createDate({ day: 17, hour: 14, minute: 0 });
+const cityTourStart = createDate({ day: 17, hour: 14, minute: 0 });
+const cityTourEnd = createDate({ day: 17, hour: 18, minute: 0 });
 const dinnerStart = createDate({ day: 17, hour: 20, minute: 0 });
 const dinnerEnd = createDate({ day: 17, hour: 22, minute: 0 });
 

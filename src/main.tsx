@@ -12,6 +12,7 @@ import "./main.css";
 import "moment/dist/locale/sv";
 import { dates } from "./dates";
 import { TimeProvider } from "./context/TimeProvider";
+import PreviousHints from "./pages/PreviousHints";
 
 const { packRevealDate, scheduleRevealDate, finalRevealDate } =
   dates.milestones;
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: "/aktiviteter",
     element: <SchedulePage revealTime={scheduleRevealDate} />,
+  },
+  {
+    path: "/tidigare-ledtrådar",
+    element: <PreviousHints />,
   },
 ]);
 

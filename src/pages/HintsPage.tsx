@@ -12,7 +12,7 @@ import CardActionsNav from "../components/CardActionsNav";
 import { dates } from "../dates";
 import { useTime } from "../context/TimeProvider";
 
-type Hint = {
+export type Hint = {
   hint: string;
   revealTime: moment.Moment;
   revealUntil: moment.Moment;
@@ -28,7 +28,7 @@ const initHint: Hint = {
   revealUntil: dates.hints.initRevealUntil,
 };
 
-function createHints() {
+export function createHints() {
   const hintsStrings: string[] = [
     // "I de äldstas fotspår: I forntidens skugga, där jättar steg, vilar hemligheter tunga som berg.",
     // "Ur dimmornas bok: I sagornas värld, där dimman dansar, viskar naturen om en plats fjärran.",

@@ -52,7 +52,8 @@ const createDate = ({
 // Milestones
 const packRevealDate = createDate({ day: 13, hour: 15, minute: 0 });
 const scheduleRevealDate = createDate({ day: 16, hour: 22, minute: 0 });
-const finalRevealDate = createDate({ day: 16, hour: 15, minute: 0 });
+const mapRevealDate = createDate({ day: 16, hour: 22, minute: 0 });
+const finalRevealDate = createDate({ day: 16, hour: 16, minute: 0 });
 
 const valentinesDayStart = createDate({ day: 14, hour: 0, minute: 0 });
 const valentinesDayEnd = createDate({ day: 15, hour: 0, minute: 0 });
@@ -101,6 +102,7 @@ type Dates = {
     packRevealDate: moment.Moment;
     scheduleRevealDate: moment.Moment;
     finalRevealDate: moment.Moment;
+    mapRevealDate: moment.Moment;
     valentinesDayStart: moment.Moment;
     valentinesDayEnd: moment.Moment;
     birthdayStart: moment.Moment;
@@ -144,6 +146,7 @@ export const dates: Dates = {
   milestones: {
     packRevealDate,
     scheduleRevealDate,
+    mapRevealDate,
     finalRevealDate,
     valentinesDayStart,
     valentinesDayEnd,

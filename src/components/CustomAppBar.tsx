@@ -18,6 +18,7 @@ const settings = [
   "Packlista",
   "Aktiviteter",
   "Tidigare Ledtrådar",
+  "Karta",
 ];
 
 function CustomAppBar() {

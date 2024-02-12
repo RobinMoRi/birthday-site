@@ -13,8 +13,9 @@ import "moment/dist/locale/sv";
 import { dates } from "./dates";
 import { TimeProvider } from "./context/TimeProvider";
 import PreviousHints from "./pages/PreviousHints";
+import Map from "./pages/Map";
 
-const { packRevealDate, scheduleRevealDate, finalRevealDate } =
+const { packRevealDate, scheduleRevealDate, finalRevealDate, mapRevealDate } =
   dates.milestones;
 
 declare module "@mui/material/styles" {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: "/tidigare-ledtrådar",
     element: <PreviousHints />,
+  },
+  {
+    path: "/karta",
+    element: <Map revealTime={mapRevealDate} />,
   },
 ]);
 

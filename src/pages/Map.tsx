@@ -24,7 +24,7 @@ const Map = ({ revealTime }: { revealTime: moment.Moment }) => {
             title={<Typography variant="h6">Karta</Typography>}
             subheader={
               <Typography variant="caption" color="text.secondary">
-                Håll utkik här, en karta med sevärdheter att presenteras{" "}
+                Håll utkik här, en karta med sevärdheter kommer att presenteras{" "}
                 {revealTime.locale("sv").format("dddd DD MMMM")}
               </Typography>
             }

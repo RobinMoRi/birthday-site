@@ -50,7 +50,7 @@ const createDate = ({
 };
 
 // Milestones
-const packRevealDate = createDate({ day: 13, hour: 15, minute: 0 });
+const packRevealDate = createDate({ day: 13, hour: 0, minute: 0 });
 const scheduleRevealDate = createDate({ day: 16, hour: 22, minute: 0 });
 const mapRevealDate = createDate({ day: 16, hour: 22, minute: 0 });
 const finalRevealDate = createDate({ day: 16, hour: 16, minute: 0 });

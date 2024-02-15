@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from "react";
-import moment from "moment-timezone";
 import { dates } from "../dates";
 import { useTime } from "./TimeProvider";
 

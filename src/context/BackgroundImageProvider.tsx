@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import moment from "moment-timezone";
 import { dates } from "../dates";
+import { useTime } from "./TimeProvider";
 
 export const BackgroundImageContext = createContext({
   backgroundImage: "xingxingmonkeyy.png",
@@ -12,12 +13,13 @@ export const BackgroundImageProvider = ({
   children: React.ReactNode;
 }) => {
   const [backgroundImage, setBackgroundImage] = useState("xingxingmonkeyy.png");
+  const { currentTime } = useTime();
 
   useEffect(() => {
     const updateBackgroundImage = () => {
       const { birthdayStart, birthdayEnd } = dates.milestones;
 
-      if (moment().isBetween(birthdayStart, birthdayEnd)) {
+      if (currentTime && currentTime.isBetween(birthdayStart, birthdayEnd)) {
         setBackgroundImage("present.png");
       } else {
         setBackgroundImage("xingxingmonkeyy.png");

@@ -14,16 +14,12 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import { useEffect, useState } from "react";
 import { Schedule, schedule } from "../schedule";
+import { useTime } from "../context/TimeProvider";
 
-function SchedulePage({
-  revealTime,
-  show = false,
-}: {
-  revealTime: moment.Moment;
-  show?: boolean;
-}) {
+function SchedulePage({ revealTime }: { revealTime: moment.Moment }) {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [currentDay, setCurrentDay] = useState<Schedule>(schedule[0]);
+  const { currentTime } = useTime();
 
   useEffect(() => {
     setCurrentDay(schedule.find((el) => el.id === currentIdx) || schedule[0]);
@@ -44,6 +40,8 @@ function SchedulePage({
     }
     setCurrentIdx((prev) => prev - 1);
   };
+  if (!currentTime) return null;
+
   return (
     <Container
       sx={{
@@ -62,7 +60,6 @@ function SchedulePage({
         <Card
           sx={{
             width: 340,
-            // height: 400,
           }}
         >
           <CardHeader
@@ -73,7 +70,7 @@ function SchedulePage({
             }
             subheader={
               <Typography variant="caption" color="text.secondary">
-                {show
+                {revealTime.isBefore(currentTime)
                   ? currentDay.day.format("ddd DD/MM yyyy")
                   : `Helgens inbokade aktiviteter kommer att presenteras här ${revealTime
                       .locale("sv")
@@ -81,7 +78,7 @@ function SchedulePage({
               </Typography>
             }
           />
-          {show ? (
+          {revealTime.isBefore(currentTime) ? (
             <CardContent>
               <Stack spacing={2}>
                 {currentDay.activities.map((activity) => {

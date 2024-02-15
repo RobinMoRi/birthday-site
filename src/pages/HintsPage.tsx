@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import CountDown from "../components/CountDown";
 import CardActionsNav from "../components/CardActionsNav";
 import { dates } from "../dates";
+import { useTime } from "../context/TimeProvider";
 
 type Hint = {
   hint: string;
@@ -84,18 +85,14 @@ function createHints() {
   return hints;
 }
 
-function HintsPage({
-  currentTime,
-  endTime,
-}: {
-  currentTime: moment.Moment;
-  endTime: moment.Moment;
-}) {
+function HintsPage({ endTime }: { endTime: moment.Moment }) {
   const [hints, _] = useState<Hint[]>(createHints());
   const [currentHint, setCurrentHint] = useState<Hint>(initHint);
-  const [nextHint, setNextHint] = useState<Hint>(initHint);
+  const [nextHint, setNextHint] = useState<Hint | null>(initHint);
+  const { currentTime } = useTime();
 
   const getCurrentHint = () => {
+    if (!currentTime) return hints[0];
     return (
       hints.find(
         (el) =>
@@ -106,6 +103,7 @@ function HintsPage({
   };
 
   const getNextHint = () => {
+    if (!currentTime) return null;
     return (
       hints[
         hints.findIndex(
@@ -129,7 +127,7 @@ function HintsPage({
           <Stack>
             <Typography variant="h6">Dagens Ledtråd</Typography>
             <Typography color="text.secondary">
-              {moment().format("ddd DD MMM")}
+              {currentTime?.format("ddd DD MMM")}
             </Typography>
           </Stack>
         }

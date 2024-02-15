@@ -17,7 +17,7 @@ function CountDown({
   startTime,
   endTime,
 }: {
-  startTime: moment.Moment;
+  startTime: moment.Moment | null;
   endTime: moment.Moment;
 }) {
   console.debug(startTime, endTime);

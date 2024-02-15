@@ -8,10 +8,10 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import CustomAppBar from "./components/CustomAppBar";
 import { BackgroundImageProvider } from "./context/BackgroundImageProvider";
-import moment from "moment-timezone";
 import "./main.css";
 import "moment/dist/locale/sv";
 import { dates } from "./dates";
+import { TimeProvider } from "./context/TimeProvider";
 
 const { packRevealDate, scheduleRevealDate, finalRevealDate } =
   dates.milestones;
@@ -42,32 +42,24 @@ const router = createBrowserRouter([
   },
   {
     path: "/packlista",
-    element: (
-      <PackingListPage
-        revealTime={packRevealDate}
-        show={packRevealDate.isBefore(moment())}
-      />
-    ),
+    element: <PackingListPage revealTime={packRevealDate} />,
   },
   {
     path: "/aktiviteter",
-    element: (
-      <SchedulePage
-        revealTime={scheduleRevealDate}
-        show={scheduleRevealDate.isBefore(moment())}
-      />
-    ),
+    element: <SchedulePage revealTime={scheduleRevealDate} />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <BackgroundImageProvider>
-        <CustomAppBar />
-        <RouterProvider router={router} />
-      </BackgroundImageProvider>
+      <TimeProvider>
+        <CssBaseline />
+        <BackgroundImageProvider>
+          <CustomAppBar />
+          <RouterProvider router={router} />
+        </BackgroundImageProvider>
+      </TimeProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

@@ -26,20 +26,16 @@ import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import { TransitionGroup } from "react-transition-group";
 import { PackItem, defaultPackingList } from "../packinglist";
 import moment from "moment-timezone";
+import { useTime } from "../context/TimeProvider";
 
-function PackingListPage({
-  revealTime,
-  show = false,
-}: {
-  revealTime: moment.Moment;
-  show?: boolean;
-}) {
+function PackingListPage({ revealTime }: { revealTime: moment.Moment }) {
   const [items, setItems] = useState<PackItem[]>(() => {
     const saved = localStorage.getItem("items");
     return saved !== null ? JSON.parse(saved) : defaultPackingList;
   });
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
   const [newItem, setNewItem] = useState("");
+  const { currentTime } = useTime();
 
   useEffect(() => {
     localStorage.setItem("items", JSON.stringify(items));
@@ -84,6 +80,7 @@ function PackingListPage({
     });
     setSelectedItems([]);
   };
+  if (!currentTime) return null;
 
   return (
     <Container
@@ -99,7 +96,7 @@ function PackingListPage({
           title={<Typography variant="h6">Packlista</Typography>}
           subheader={
             <Stack>
-              {show ? (
+              {revealTime.isBefore(currentTime) ? (
                 <>
                   <Typography variant="caption" color="text.secondary">
                     Väska under sätet: (40 x 30 x 15 cm)
@@ -144,7 +141,7 @@ function PackingListPage({
             </Stack>
           }
         />
-        {show ? (
+        {revealTime.isBefore(currentTime) ? (
           <CardContent
             sx={{
               maxHeight: 400,
